@@ -13,16 +13,21 @@ header {
   margin-bottom: 2em;
 }
 
-h1 {
+h1, h1 a {
   font-family: 'Limelight', cursive;
   letter-spacing: .025em;
   text-transform: uppercase;
+  color: #000000;
 }
 
 a {
   text-decoration: none;
   color: #516dba;
   font-weight: bold;
+}
+
+a:hover {
+  color: #db7272;
 }
 
 ul {

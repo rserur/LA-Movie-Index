@@ -38,15 +38,29 @@ end
 get '/movies' do
 
   @movies = get_movies
-  @page = params[:page]
-  @prev_p = @page.to_i - 20
-  @next_p = @page.to_i + 20
 
-  index = 1 * @page.to_i
+  @search_term = params[:query]
 
-  @movies = @movies.slice(index,20)
+  @page = params[:page].to_i
 
-  erb :index
+  if @search_term != nil
+
+    @movies = @movies.select do |m|
+      m[:title].include?(params[:query])
+    end
+
+    erb :results
+
+  elsif @page > 0
+
+    index = @page.to_i * 20
+    @movies = @movies.slice(index,20)
+
+    erb :index
+
+  end
+
+
 end
 
 

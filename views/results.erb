@@ -14,12 +14,9 @@
 </form>
 
 <ul>
-  <% @movies.each do |movie| %>
-    <li><a href="<%= url("movies/#{movie[:id]}") %>"><%= movie[:title] %></a></li>
-  <% end %>
-
-  <a href="<%= url("movies?page=#{@page - 1}") %>">Previous</a> |
-  <a href="<%= url("movies?page=#{@page + 1}") %>">Next</a>
+    <% @movies.each do |movie| %>
+    <li><%= movie[:title] %></li>
+    <% end %>
 </ul>
 </body>
 </html>

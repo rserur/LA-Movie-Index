@@ -10,6 +10,13 @@ def get_movies
     all_movies << row.to_hash
   end
 
+  # fix null synopses
+  all_movies.each do |movie|
+    if movie[:synopsis] == nil
+      movie[:synopsis] = ""
+    end
+  end
+
   # sorry array by title
   all_movies = all_movies.sort_by { |row| row[:title] }
 
@@ -46,7 +53,8 @@ get '/movies' do
   if @search_term != nil
 
     @movies = @movies.select do |m|
-      m[:title].include?(params[:query])
+      m[:title].include?(params[:query]) ||
+      m[:synopsis].include?(params[:query])
     end
 
     erb :results

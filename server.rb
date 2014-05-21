@@ -51,7 +51,7 @@ get '/movies' do
 
     erb :results
 
-  elsif @page > 0
+  else
 
     index = @page.to_i * 20
     @movies = @movies.slice(index,20)
@@ -59,7 +59,6 @@ get '/movies' do
     erb :index
 
   end
-
 
 end
 

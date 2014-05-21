@@ -3,15 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Movie Index</title>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Limelight' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-<ul>
-    <li>Title: <%= @movies[:title] %></li>
-    <li>Release Year: <%= @movies[:year] %></li>
-    <li>Synopsis: <%= @movies[:synopsis] %></li>
-    <li>Rating: <%= @movies[:rating] %></li>
-    <li>Genre: <%= @movies[:genre] %></li>
-    <li>Studio: <%= @movies[:studio] %></li>
+
+<header>
+  <h1>The Movie Index</h1>
+  <h2><form action="/movies" method="get">
+    <label for="query">Search: </label>
+    <input type="text" name="query" id="query" />
+
+    <input type="submit" value="Search" />
+  </form></h2>
+</header>
+
+<ul class="movie-info">
+    <li><span class="label">Title:</span> <%= @movies[:title] %></li>
+    <li><span class="label">Release Year:</: <%= @movies[:year] %><</li>
+    <li><span class="label">Synopsis:</span> <%= @movies[:synopsis] %></li>
+    <li><span class="label">Rating:</span> <%= @movies[:rating] %></li>
+    <li><span class="label">Genre:</span> <%= @movies[:genre] %></li>
+    <li><span class="label">Studio:</span> <%= @movies[:studio] %></li>
 </ul>
+
+<div class="nav"><a href="javascript:history.back()">Back</a></div>
 </body>
 </html>

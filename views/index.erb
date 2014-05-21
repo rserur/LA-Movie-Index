@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Index</title>
+</head>
+<body>
+<ul>
+  <% @movies.each do |movie| %>
+    <li><a href="<%= url("movies/#{movie[:id]}") %>"><%= movie[:title] %></a></li>
+  <% end %>
+
+  <a href="<%= url("movies?page=#{@prev_p}") %>">Previous</a> |
+  <a href="<%= url("movies?page=#{@next_p}") %>">Next</a>
+</ul>
+</body>
+</html>
